@@ -1,129 +1,104 @@
 "use client";
 
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import React from 'react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
-interface ContactInfo {
-  title: string;
-  details: string[];
-}
-
-const contactInfoData: ContactInfo[] = [
-  {
-    title: "Our Location",
-    details: ["401 Broadway, 24th Floor, Orchard Cloud View, London"],
-  },
-  {
-    title: "Email Address",
-    details: ["info@yourdomain.com", "contact@yourdomain.com"],
-  },
-  {
-    title: "Phone Number",
-    details: ["+990 846 73644", "+550 9475 4543"],
-  },
-];
-
-const ContactSection = () => {
+const ContactSection: React.FC = () => {
   return (
-    <section id="contact" className="pb-16 pt-[120px] lg:pb-28 lg:pt-[150px]">
+    <section id="contact" className="bg-white dark:bg-gray-900 pb-16 pt-[120px]">
       <div className="container">
+        <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-[45px]">
+            Contact Us
+          </h2>
+          <h3 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-300">
+            Let's talk about your problem
+          </h3>
+          <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
+          </p>
+        </div>
+
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-1/2">
-            <div className="mb-14 max-w-[530px] lg:mb-0">
-              <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
-                Contact Us
-              </span>
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-[45px]">
-                Let's talk about your problem.
-              </h2>
-
-              {contactInfoData.map((info, index) => (
-                <div key={index} className="mb-10">
-                  <h3 className="mb-4 text-xl font-bold text-foreground sm:text-[22px]">
-                    {info.title}
-                  </h3>
-                  {info.details.map((detail, i) => (
-                    <p key={i} className="text-base font-medium text-muted-foreground">
-                      {detail}
+            <div className="mb-12 lg:mb-0">
+              <div className="mb-8 space-y-6">
+                <div className="flex items-start">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
+                    <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">Our Location</h4>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      401 Broadway, 24th Floor, Orchard Cloud View, London
                     </p>
-                  ))}
+                  </div>
                 </div>
-              ))}
+                
+                <div className="flex items-start">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
+                    <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">How Can We Help?</h4>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      info@yourdomain.com
+                    </p>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      contact@yourdomain.com  
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
+                    <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">Call Us</h4>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      +012 (345) 678 99
+                    </p>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      +456 789 012 34
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
           <div className="w-full px-4 lg:w-1/2">
-            <div className="rounded-lg bg-background px-8 py-10 shadow-lg sm:px-10">
-              <div className="mb-8 border-b border-border pb-8">
-                <h3 className="mb-3.5 text-2xl font-semibold text-foreground sm:text-3xl">
-                  How Can We Help?
-                </h3>
-                <p className="text-base font-medium text-muted-foreground">
-                  Tell us your problem we will get back to you ASAP.
-                </p>
-              </div>
+            <div className="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg border border-gray-200 dark:border-gray-700">
               <form>
-                <div className="-mx-4 flex flex-wrap">
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-[22px]">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-foreground"
-                      >
-                        Full Name*
-                      </label>
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Adam Gelius"
-                        className="h-auto w-full rounded-md border-input bg-transparent px-4 py-3 text-base text-foreground"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-[22px]">
-                      <label
-                        htmlFor="email"
-                        className="mb-3 block text-sm font-medium text-foreground"
-                      >
-                        Email Address*
-                      </label>
-                      <Input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="example@gmail.com"
-                        className="h-auto w-full rounded-md border-input bg-transparent px-4 py-3 text-base text-foreground"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <div className="mb-[22px]">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-foreground"
-                      >
-                        Message*
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        placeholder="type your message here"
-                        className="w-full rounded-md border-input bg-transparent px-4 py-3 text-base text-foreground"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full px-4">
-                    <Button
-                      type="submit"
-                      className="mt-2 h-auto w-full rounded-md px-10 py-4 text-base font-semibold"
-                    >
-                      Send Message
-                    </Button>
-                  </div>
+                <div className="mb-6">
+                  <input
+                    type="text"
+                    placeholder="Your Full Name"
+                    className="w-full rounded-lg bg-gray-50 dark:bg-gray-900 px-6 py-4 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+                <div className="mb-6">
+                  <input
+                    type="email"
+                    placeholder="Your Email Address"
+                    className="w-full rounded-lg bg-gray-50 dark:bg-gray-900 px-6 py-4 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none"
+                  />
+                </div>
+                <div className="mb-6">
+                  <textarea
+                    rows={5}
+                    placeholder="Your Message"
+                    className="w-full rounded-lg bg-gray-50 dark:bg-gray-900 px-6 py-4 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none resize-none"
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-300"
+                  >
+                    Send Message
+                  </button>
                 </div>
               </form>
             </div>

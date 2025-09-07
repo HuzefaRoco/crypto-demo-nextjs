@@ -1,103 +1,113 @@
 import React from 'react';
 import Image from 'next/image';
-import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Twitter, Linkedin, Facebook } from 'lucide-react';
 
-const teamData = [
+const teamMembers = [
   {
+    id: 1,
+    name: "Juhan Ahamed",
+    role: "Graphic Designer",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/images/next-483708-image-01.jpg?",
-    name: "Matheus Ferrero",
-    title: "Marketing Expert",
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
+    id: 2,
+    name: "Musharof Chowdhury",
+    role: "Web Developer",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/images/next-964817-image-02.jpg?",
-    name: "Eva Hudson",
-    title: "Blockchain Developer",
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
+    id: 3,
+    name: "Naimur Rahman",
+    role: "Marketing Manager",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/images/next-155223-image-03.jpg?",
-    name: "Jackie Sanders",
-    title: "Creative Designer",
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
+    id: 4,
+    name: "Devid Miller",
+    role: "App Developer",
     image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/images/next-158566-image-04.jpg?",
-    name: "Jackie Sanders",
-    title: "SEO Expert",
-  },
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
+  }
 ];
 
-interface TeamCardProps {
-  image: string;
-  name: string;
-  title: string;
-}
-
-const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a href={href} className="text-muted-foreground hover:text-primary">
-    {children}
-  </a>
-);
-
-const TeamCard: React.FC<TeamCardProps> = ({ image, name, title }) => {
+const TeamSection: React.FC = () => {
   return (
-    <div className="w-full px-4 sm:w-1/2 lg:w-1/4">
-      <div className="group relative mb-12 text-center">
-        <div className="relative mx-auto h-[320px] w-[270px] overflow-hidden rounded-lg">
-          <Image
-            src={image}
-            alt={name}
-            width={270}
-            height={320}
-            className="w-full transition-all duration-300 group-hover:scale-105"
-            style={{ color: "transparent" }}
-          />
-        </div>
-        <div className="relative z-10 mx-auto -mt-8 w-[calc(100%-40px)] rounded-lg bg-card px-5 py-6 shadow-md">
-          <h3 className="mb-1 text-2xl font-bold text-foreground">{name}</h3>
-          <p className="mb-4 text-base font-medium text-muted-foreground">{title}</p>
-          <div className="flex items-center justify-center space-x-5">
-            <SocialIcon href="#">
-              <Twitter width={20} height={20} />
-            </SocialIcon>
-            <SocialIcon href="#">
-              <Facebook width={20} height={20} />
-            </SocialIcon>
-            <SocialIcon href="#">
-              <Instagram width={20} height={20} />
-            </SocialIcon>
-            <SocialIcon href="#">
-              <Linkedin width={20} height={20} />
-            </SocialIcon>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TeamSection = () => {
-  return (
-    <section className="bg-background pb-20 pt-[120px]">
+    <section id="team" className="bg-white dark:bg-gray-900 pb-16 pt-[120px]">
       <div className="container">
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
-          <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
+          <span className="mb-3 block text-lg font-bold uppercase text-blue-600 dark:text-blue-400 sm:text-xl">
             OUR TEAM
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-[45px]">
             Meet our Team
           </h2>
-          <p className="text-lg font-medium text-muted-foreground">
+          <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
           </p>
         </div>
 
-        <div className="-mx-4 flex flex-wrap justify-center">
-          {teamData.map((member, index) => (
-            <TeamCard
-              key={index}
-              image={member.image}
-              name={member.name}
-              title={member.title}
-            />
+        <div className="-mx-4 flex flex-wrap">
+          {teamMembers.map((member) => (
+            <div key={member.id} className="w-full px-4 md:w-1/2 lg:w-1/4">
+              <div className="mx-auto mb-14 max-w-[370px] text-center">
+                <div className="mx-auto mb-6 h-[250px] w-[250px] overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={250}
+                    height={250}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+                    {member.name}
+                  </h3>
+                  <p className="mb-4 text-base font-medium text-gray-600 dark:text-gray-300 sm:text-lg">
+                    {member.role}
+                  </p>
+                  <div className="flex items-center justify-center space-x-4">
+                    <a
+                      href={member.social.twitter}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                    >
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                    <a
+                      href={member.social.linkedin}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                    <a
+                      href={member.social.facebook}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                    >
+                      <Facebook className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

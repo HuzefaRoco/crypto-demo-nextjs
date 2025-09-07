@@ -15,19 +15,19 @@ import FooterSection from "@/components/sections/footer-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <HeaderNavigation />
       
       <main>
         <HeroSection />
         
-        <div className="py-20">
+        <div className="py-20 bg-white dark:bg-gray-900">
           <BrandsSection />
         </div>
         
         <FeaturesSection />
         
-        <div className="py-20">
+        <div className="py-20 bg-white dark:bg-gray-900">
           <TokenSaleSection />
         </div>
         
@@ -35,7 +35,7 @@ export default function Home() {
         
         <TeamSection />
         
-        <div className="py-20">
+        <div className="py-20 bg-white dark:bg-gray-900">
           <TestimonialsSection />
         </div>
         
@@ -43,7 +43,7 @@ export default function Home() {
         
         <FaqSection />
         
-        <div className="py-20">
+        <div className="py-20 bg-white dark:bg-gray-900">
           <BlogSection />
         </div>
         
