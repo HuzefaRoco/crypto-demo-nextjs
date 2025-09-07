@@ -87,16 +87,16 @@ const IconShiba = () => (
 
 const cryptoIcons = [
   { id: 1, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
-  { id: 2, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
-  { id: 3, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
-  { id: 4, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
-  { id: 5, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
-  { id: 6, component: <IconBitcoin />, tooltip: "Bitcoin (BTC)" },
+  { id: 2, component: <IconEthereum />, tooltip: "Bitcoin (BTC)" },
+  { id: 3, component: <IconBinance />, tooltip: "Bitcoin (BTC)" },
+  { id: 4, component: <IconTether />, tooltip: "Bitcoin (BTC)" },
+  { id: 5, component: <IconCardano />, tooltip: "Bitcoin (BTC)" },
+  { id: 6, component: <IconShiba />, tooltip: "Bitcoin (BTC)" },
 ];
 
 const TooltipIcon = ({ icon, tooltipText }: { icon: React.ReactNode; tooltipText: string }) => (
   <div className="group relative mt-4 px-1 sm:px-2">
-    <span className="mt-2 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-gray-800">
+    <span className="mt-2 flex h-10 w-10 items-center justify-center rounded-full bg-white">
       {icon}
     </span>
     <div className="absolute -top-full left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#2D2C4A] px-5 py-2 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -108,15 +108,15 @@ const TooltipIcon = ({ icon, tooltipText }: { icon: React.ReactNode; tooltipText
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative z-10 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 pb-28 pt-48">
+    <section id="home" className="relative z-10 bg-gradient-hero pb-28 pt-48">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto max-w-[720px] text-center">
-              <h1 className="mb-4 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-[45px]">
+              <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
                 Next.js Template and Boilerplate for Crypto, ICO and Web3
               </h1>
-              <p className="mx-auto mb-4 max-w-[620px] text-lg font-medium text-gray-600 dark:text-gray-300">
+              <p className="mx-auto mb-4 max-w-[620px] text-lg font-medium text-muted-foreground">
                 A Next.js website template for Crypto Currency, Blockchain, ICO, and Web3, meticulously styled with Tailwind CSS. This boilerplate includes essential integrations, UI components, pages, and enabling you to launch a comprehensive website or landing page for anything related to Crypto, Blockchain, and Web3.
               </p>
               <div className="-mx-1 mb-10 flex flex-wrap items-center justify-center sm:-mx-2">
@@ -124,7 +124,7 @@ const HeroSection = () => {
                   <TooltipIcon key={icon.id} icon={icon.component} tooltipText={icon.tooltip} />
                 ))}
               </div>
-              <a href="#" className="rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-colors">
+              <a href="#" className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-primary-foreground shadow-btn transition-colors hover:bg-primary/90">
                 Buy Tokens 47% Off
               </a>
             </div>

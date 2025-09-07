@@ -42,16 +42,16 @@ const featuresData: Feature[] = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section id="features" className="bg-white dark:bg-gray-900 pb-16 pt-[120px]">
+    <section id="features" className="bg-background pb-16 pt-[120px]">
       <div className="container">
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
-          <span className="mb-3 block text-lg font-bold uppercase text-blue-600 dark:text-blue-400 sm:text-xl">
+          <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
             CRYPTO FEATURE
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
             Best Features
           </h2>
-          <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
+          <p className="text-lg font-medium text-muted-foreground">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
           </p>
         </div>
@@ -62,14 +62,14 @@ const FeaturesSection: React.FC = () => {
             return (
               <div key={index} className="w-full px-4 md:w-1/2 lg:w-1/3">
                 <div className="mx-auto mb-14 max-w-[370px] text-center">
-                  <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-blue-600 dark:bg-blue-500 text-white">
+                  <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white">
                     <Icon className="h-10 w-10" />
                   </div>
                   <div>
-                    <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                    <h3 className="mb-3 text-xl font-bold text-foreground sm:text-3xl lg:text-xl xl:text-3xl">
                       {feature.title}
                     </h3>
-                    <p className="text-base font-medium text-gray-600 dark:text-gray-300 sm:text-lg lg:text-base xl:text-lg">
+                    <p className="text-base font-medium text-muted-foreground sm:text-lg lg:text-base xl:text-lg">
                       {feature.description}
                     </p>
                   </div>

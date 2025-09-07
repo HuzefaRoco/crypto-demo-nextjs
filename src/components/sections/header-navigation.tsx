@@ -82,15 +82,15 @@ const HeaderNavigation = () => {
             <div>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="absolute top-1/2 right-4 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 focus:ring-blue-500 xl:hidden"
+                className="ring-primary absolute top-1/2 right-4 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 xl:hidden"
                 aria-label="navbarOpen"
               >
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-gray-900 dark:bg-white"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-gray-900 dark:bg-white"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-gray-900 dark:bg-white"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
               </button>
               <nav
-                className={`absolute top-full right-4 w-full max-w-[250px] rounded-lg bg-white dark:bg-gray-900 px-6 py-4 shadow-sm xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:dark:bg-transparent xl:py-0 xl:shadow-none ${
+                className={`absolute top-full right-4 w-full max-w-[250px] rounded-lg bg-white dark:bg-gray-900 px-6 py-4 shadow-sm xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:py-0 xl:shadow-none ${
                     isMenuOpen ? "block" : "hidden"
                 }`}
               >
@@ -99,7 +99,7 @@ const HeaderNavigation = () => {
                     <li key={item.label} className="menu-item">
                       <Link
                         href={item.href}
-                        className="flex py-2 text-lg font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
+                        className="flex py-2 text-lg font-semibold text-muted-foreground hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
                       >
                         {item.label}
                       </Link>
@@ -107,7 +107,7 @@ const HeaderNavigation = () => {
                   ))}
                   <li className="submenu-item group relative">
                     <a
-                      className="relative flex items-center py-2 text-lg font-semibold text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 lg:ml-7 lg:inline-flex lg:py-5 lg:pr-4 lg:pl-0 xl:ml-10 2xl:ml-12"
+                      className="relative flex items-center py-2 text-lg font-semibold text-muted-foreground group-hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 lg:pr-4 lg:pl-0 xl:ml-10 2xl:ml-12"
                       href="#"
                     >
                       Pages
@@ -120,7 +120,7 @@ const HeaderNavigation = () => {
                         <li key={item.label}>
                           <Link
                             href={item.href}
-                            className="block rounded-sm py-[10px] text-sm text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 lg:px-4"
+                            className="block rounded-sm py-[10px] text-sm text-black dark:text-white hover:text-primary lg:px-4"
                           >
                             {item.label}
                           </Link>
@@ -131,7 +131,7 @@ const HeaderNavigation = () => {
                   <li className="menu-item">
                     <Link
                       href="/#contact"
-                      className="flex py-2 text-lg font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
+                      className="flex py-2 text-lg font-semibold text-muted-foreground hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
                     >
                       Support
                     </Link>
@@ -140,22 +140,22 @@ const HeaderNavigation = () => {
               </nav>
             </div>
             <div className="flex items-center justify-end pr-16 xl:pr-0 xl:pl-12 2xl:pl-20">
-              <button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm sm:flex">
+              <button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white dark:bg-gray-800 text-black dark:text-white shadow-sm sm:flex">
                 <Search className="h-5 w-5" />
               </button>
               <div className="mr-4">
                 <button
                   onClick={toggleTheme}
-                  className="flex h-11 w-20 cursor-pointer items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300"
+                  className="flex h-11 w-20 cursor-pointer items-center justify-center rounded-full bg-secondary dark:bg-gray-700 transition-colors duration-300"
                   aria-label="Toggle theme"
                 >
                   <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
-                    !isDarkMode ? "bg-blue-600 text-white" : "bg-transparent text-gray-600 dark:text-gray-400"
+                    !isDarkMode ? "bg-primary text-white" : "bg-transparent text-muted-foreground"
                   }`}>
                     <Sun className="h-4 w-4 fill-current" />
                   </span>
                   <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
-                    isDarkMode ? "bg-blue-600 text-white" : "bg-transparent text-gray-600 dark:text-gray-400"
+                    isDarkMode ? "bg-primary text-white" : "bg-transparent text-muted-foreground"
                   }`}>
                     <Moon className="h-4 w-4 fill-current" />
                   </span>
@@ -164,7 +164,7 @@ const HeaderNavigation = () => {
               <div className="hidden sm:flex">
                 <Link
                   href="/auth/signin"
-                  className="flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 px-8 py-[9px] text-base font-semibold text-gray-900 dark:text-white transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white"
+                  className="flex items-center justify-center rounded-full border border-border px-8 py-[9px] text-base font-semibold text-foreground transition-all hover:border-primary hover:bg-primary hover:text-white"
                 >
                   Sign In
                 </Link>

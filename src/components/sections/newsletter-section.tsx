@@ -1,45 +1,48 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
+import Image from "next/image";
 
-const NewsletterSection: React.FC = () => {
+const NewsletterSection = () => {
   return (
-    <section className="relative bg-blue-50 dark:bg-gray-800 py-16">
+    <section className="relative z-10 py-20 lg:py-[100px]">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap items-center">
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="mb-12 max-w-[520px] lg:mb-0">
-              <h2 className="mb-4 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-[45px]">
+        <div className="relative overflow-hidden rounded-lg bg-secondary px-8 py-12 sm:px-12 md:p-[70px]">
+          <div className="-mx-4 flex flex-wrap items-center">
+            <div className="w-full px-4 lg:w-1/2">
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-[45px]">
                 Newsletter
               </h2>
-              <p className="mb-6 text-lg font-medium text-gray-600 dark:text-gray-300">
-                Stay updated with our latest news and exclusive crypto insights. Subscribe to our newsletter and never miss important updates about the crypto world.
+              <p className="mb-10 text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-relaxed lg:text-base xl:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                vitae quam nec ante aliquet fringilla vel at erat.
               </p>
-              <form className="flex flex-col gap-4 sm:flex-row">
+              <form>
                 <input
+                  className="w-full rounded-md border border-border bg-background px-5 py-3 text-base text-muted-foreground outline-none placeholder:text-muted-foreground focus:border-primary focus-visible:shadow-none"
+                  placeholder="Enter your email"
                   type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 rounded-lg bg-white dark:bg-gray-900 px-6 py-4 text-base text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-300"
+                  className="mt-5 w-full rounded-md bg-primary px-5 py-3 text-base font-medium text-primary-foreground hover:bg-primary/90"
                 >
                   Submit
                 </button>
               </form>
             </div>
-          </div>
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="relative mx-auto max-w-[400px] text-center lg:mr-0">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/newsletter-shape-20.svg?"
-                alt="newsletter shape"
-                width={400}
-                height={300}
-                className="w-full opacity-70"
-              />
+            <div className="w-full px-4 lg:w-1/2">
+              <div
+                className="wow fadeInUp lg:ml-auto lg:text-right"
+                data-wow-delay=".5s"
+              >
+                <Image
+                  alt="shape"
+                  width={377}
+                  height={300}
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/newsletter-shape-20.svg?"
+                  className="hidden lg:block"
+                />
+              </div>
             </div>
           </div>
         </div>
