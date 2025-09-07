@@ -113,10 +113,10 @@ const HeroSection = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto max-w-[720px] text-center">
-              <h1 className="mb-4 text-3xl font-bold leading-tight text-text-dark md:text-[45px]">
+              <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
                 Next.js Template and Boilerplate for Crypto, ICO and Web3
               </h1>
-              <p className="mx-auto mb-4 max-w-[620px] text-lg font-medium text-text-medium-gray">
+              <p className="mx-auto mb-4 max-w-[620px] text-lg font-medium text-muted-foreground">
                 A Next.js website template for Crypto Currency, Blockchain, ICO, and Web3, meticulously styled with Tailwind CSS. This boilerplate includes essential integrations, UI components, pages, and enabling you to launch a comprehensive website or landing page for anything related to Crypto, Blockchain, and Web3.
               </p>
               <div className="-mx-1 mb-10 flex flex-wrap items-center justify-center sm:-mx-2">
@@ -124,7 +124,7 @@ const HeroSection = () => {
                   <TooltipIcon key={icon.id} icon={icon.component} tooltipText={icon.tooltip} />
                 ))}
               </div>
-              <a href="#" className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-white shadow-btn transition-colors hover:bg-primary/90">
+              <a href="#" className="rounded-full bg-primary px-8 py-3 text-base font-semibold text-primary-foreground shadow-btn transition-colors hover:bg-primary/90">
                 Buy Tokens 47% Off
               </a>
             </div>

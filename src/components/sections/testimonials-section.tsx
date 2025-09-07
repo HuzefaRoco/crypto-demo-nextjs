@@ -42,7 +42,7 @@ const testimonialData: Testimonial[] = [
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="w-full px-4 md:w-1/2">
-      <div className="relative mb-12 rounded-lg bg-[#F3F6FF] p-8 sm:p-10 lg:p-8 xl:p-10">
+      <div className="relative mb-12 rounded-lg bg-secondary p-8 sm:p-10 lg:p-8 xl:p-10">
         <div className="mb-8 flex items-center">
           <div className="h-[90px] w-[90px] flex-shrink-0">
             <Image

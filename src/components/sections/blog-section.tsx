@@ -58,10 +58,10 @@ const BlogSection = () => {
           <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
             LATEST NEWS
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-text-dark md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
             Recent News & Blogs
           </h2>
-          <p className="text-lg font-medium text-text-medium-gray">
+          <p className="text-lg font-medium text-muted-foreground">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
           </p>
         </div>
@@ -69,7 +69,7 @@ const BlogSection = () => {
         <div className="-mx-4 flex flex-wrap justify-center">
           {blogPosts.map((post, index) => (
             <div key={index} className="w-full px-4 md:w-1/2 lg:w-1/3">
-              <div className="mb-10 rounded-lg bg-[#F7F9FC] p-8 card-shadow sm:p-9 md:p-7 xl:p-9">
+              <div className="mb-10 rounded-lg bg-card p-8 card-shadow sm:p-9 md:p-7 xl:p-9">
                 <Link
                   href={post.postUrl}
                   className="mb-7 block w-full overflow-hidden rounded-lg"
@@ -84,32 +84,32 @@ const BlogSection = () => {
                 </Link>
                 <div className="mb-4 flex items-center">
                   <div className="mr-5 flex items-center">
-                    <User className="mr-2 h-[18px] w-[18px] text-text-medium-gray" />
-                    <p className="text-sm font-medium text-text-medium-gray">
+                    <User className="mr-2 h-[18px] w-[18px] text-muted-foreground" />
+                    <p className="text-sm font-medium text-muted-foreground">
                       <Link href={post.authorUrl} className="text-primary hover:underline">
                         {post.author}
                       </Link>
                     </p>
                   </div>
                   <div className="flex items-center">
-                    <CalendarDays className="mr-2 h-[18px] w-[18px] text-text-medium-gray" />
-                    <p className="text-sm font-medium text-text-medium-gray">{post.date}</p>
+                    <CalendarDays className="mr-2 h-[18px] w-[18px] text-muted-foreground" />
+                    <p className="text-sm font-medium text-muted-foreground">{post.date}</p>
                   </div>
                 </div>
                 <h3>
                   <Link
                     href={post.postUrl}
-                    className="mb-3 block text-xl font-bold text-text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl"
+                    className="mb-3 block text-xl font-bold text-foreground hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl"
                   >
                     {post.title}
                   </Link>
                 </h3>
-                <p className="mb-6 text-base font-medium text-text-medium-gray">
+                <p className="mb-6 text-base font-medium text-muted-foreground">
                   {post.excerpt}
                 </p>
                 <Link
                   href={post.postUrl}
-                  className="inline-block rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 btn-shadow"
+                  className="inline-block rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 btn-shadow"
                 >
                   Read More
                 </Link>

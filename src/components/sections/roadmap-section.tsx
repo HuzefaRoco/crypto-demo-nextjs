@@ -113,14 +113,14 @@ const timelineData = [
 type TimelineItem = (typeof timelineData)[0];
 
 const TimelineCard = ({ date, description, badge }: TimelineItem) => (
-  <div className="relative z-10 mx-auto inline-block max-w-[480px] rounded-xl border border-gray-200 bg-white px-7 py-8 shadow-md sm:px-9">
-    <h3 className="mb-4 text-2xl font-bold text-black">{date}</h3>
-    <p className="mb-8 text-base font-medium leading-relaxed text-gray-500">
+  <div className="relative z-10 mx-auto inline-block max-w-[480px] rounded-xl border border-border bg-card px-7 py-8 shadow-md sm:px-9">
+    <h3 className="mb-4 text-2xl font-bold text-foreground">{date}</h3>
+    <p className="mb-8 text-base font-medium leading-relaxed text-muted-foreground">
       {description}
     </p>
     <a
       href="#"
-      className={`${badge.bgColor} inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-base font-medium text-black`}
+      className={`${badge.bgColor} inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-base font-medium text-foreground`}
     >
       <badge.Icon />
       {badge.name}
@@ -137,10 +137,10 @@ const RoadmapSection = () => {
           <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
             ROADMAP
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-black md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
             The Timeline
           </h2>
-          <p className="text-lg font-medium text-gray-500">
+          <p className="text-lg font-medium text-muted-foreground">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
           </p>
         </div>

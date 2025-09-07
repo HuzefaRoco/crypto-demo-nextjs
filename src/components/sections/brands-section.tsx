@@ -43,8 +43,8 @@ const BrandsSection = () => {
     <section>
       <div className="container">
         <div>
-          <div className="border-y border-[#F3F4F4] pt-10">
-            <h2 className="mb-10 text-center text-lg font-bold text-black sm:text-2xl">
+          <div className="border-y border-border pt-10">
+            <h2 className="mb-10 text-center text-lg font-bold text-foreground sm:text-2xl">
               Join the 20,000+ companies using the our platform
             </h2>
             <div className="-mx-4 flex flex-wrap items-center justify-center">

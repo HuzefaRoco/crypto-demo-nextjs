@@ -34,7 +34,7 @@ const SocialLink = ({ href, children }: { href: string; children: React.ReactNod
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="h-9 w-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white transition-colors"
+        className="h-9 w-9 flex items-center justify-center rounded-full bg-secondary text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
     >
         {children}
     </a>
@@ -43,7 +43,7 @@ const SocialLink = ({ href, children }: { href: string; children: React.ReactNod
 
 const FooterSection = () => {
     return (
-        <footer className="bg-slate-50 pt-20 lg:pt-24">
+        <footer className="bg-secondary pt-20 lg:pt-24">
             <div className="container mx-auto max-w-[1200px] px-4">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-12">
                     <div className="lg:col-span-5 xl:col-span-4">
@@ -55,7 +55,7 @@ const FooterSection = () => {
                                 height={29}
                             />
                         </Link>
-                        <p className="mb-8 max-w-[340px] text-base font-medium text-gray-500">
+                        <p className="mb-8 max-w-[340px] text-base font-medium text-muted-foreground">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae quam nec ante fringilla vel at erat convallis elit.
                         </p>
                         <div className="flex space-x-4">
@@ -68,43 +68,43 @@ const FooterSection = () => {
 
                     <div className="lg:col-span-7 xl:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-12">
                          <div className="sm:col-span-1">
-                            <h3 className="mb-6 text-lg font-semibold text-gray-800">Quick Links</h3>
+                            <h3 className="mb-6 text-lg font-semibold text-foreground">Quick Links</h3>
                             <ul className="space-y-3">
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">What is ico</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Roadmap</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Whitepaper</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Social Network</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Join Us Now</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">What is ico</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Roadmap</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Whitepaper</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Social Network</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Join Us Now</Link></li>
                             </ul>
                         </div>
                         
                         <div className="sm:col-span-1">
-                            <h3 className="mb-6 text-lg font-semibold text-gray-800">Supports</h3>
+                            <h3 className="mb-6 text-lg font-semibold text-foreground">Supports</h3>
                             <ul className="space-y-3">
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Setting & Privacy</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Help & Support</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">Terms & Conditions</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">24/7 Supports</Link></li>
-                                <li><Link href="#" className="inline-block text-base font-medium text-gray-500 hover:text-primary">On Point FAQ</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Setting & Privacy</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Help & Support</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">Terms & Conditions</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">24/7 Supports</Link></li>
+                                <li><Link href="#" className="inline-block text-base font-medium text-muted-foreground hover:text-primary">On Point FAQ</Link></li>
                             </ul>
                         </div>
 
                         <div className="sm:col-span-1">
-                            <h3 className="mb-6 text-lg font-semibold text-gray-800">News & Post</h3>
+                            <h3 className="mb-6 text-lg font-semibold text-foreground">News & Post</h3>
                             <ul className="space-y-4">
                                 <li>
-                                    <Link href="#" className="block mb-2 text-base font-medium text-gray-800 hover:text-primary">
+                                    <Link href="#" className="block mb-2 text-base font-medium text-foreground hover:text-primary">
                                         Laboris nisi aliquip dium exiuliym commo cons...
                                     </Link>
-                                    <p className="flex items-center text-sm font-medium text-gray-500">
+                                    <p className="flex items-center text-sm font-medium text-muted-foreground">
                                         <CalendarDays className="mr-2 h-4 w-4" /> Aug 21 2024
                                     </p>
                                 </li>
                                 <li>
-                                    <Link href="#" className="block mb-2 text-base font-medium text-gray-800 hover:text-primary">
+                                    <Link href="#" className="block mb-2 text-base font-medium text-foreground hover:text-primary">
                                         Expenses as material bre mate insisted buildi...
                                     </Link>
-                                    <p className="flex items-center text-sm font-medium text-gray-500">
+                                    <p className="flex items-center text-sm font-medium text-muted-foreground">
                                         <CalendarDays className="mr-2 h-4 w-4" /> Aug 21 2024
                                     </p>
                                 </li>
@@ -114,8 +114,8 @@ const FooterSection = () => {
                 </div>
             </div>
 
-            <div className="mt-16 border-t border-gray-200 py-8">
-                <p className="text-center text-base text-gray-500">
+            <div className="mt-16 border-t border-border py-8">
+                <p className="text-center text-base text-muted-foreground">
                     © Crypto - All Rights Reserved, Crafted by Next.js Templates
                 </p>
             </div>

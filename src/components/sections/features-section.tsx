@@ -42,13 +42,13 @@ const featuresData: Feature[] = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section id="features" className="bg-white pb-16 pt-[120px]">
+    <section id="features" className="bg-background pb-16 pt-[120px]">
       <div className="container">
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
           <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
             CRYPTO FEATURE
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-black md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-foreground md:text-[45px]">
             Best Features
           </h2>
           <p className="text-lg font-medium text-muted-foreground">
@@ -66,7 +66,7 @@ const FeaturesSection: React.FC = () => {
                     <Icon className="h-10 w-10" />
                   </div>
                   <div>
-                    <h3 className="mb-3 text-xl font-bold text-black sm:text-3xl lg:text-xl xl:text-3xl">
+                    <h3 className="mb-3 text-xl font-bold text-foreground sm:text-3xl lg:text-xl xl:text-3xl">
                       {feature.title}
                     </h3>
                     <p className="text-base font-medium text-muted-foreground sm:text-lg lg:text-base xl:text-lg">
