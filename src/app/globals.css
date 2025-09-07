@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Shadcn/UI Colors */
+  --color-background: #ffffff;
+  --color-foreground: #1A202C; /* Dark Text */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1A202C;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1A202C;
+
+  --color-primary: #4F7EFF; /* Primary Blue */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #E2E8F0; /* Light Purple */
+  --color-secondary-foreground: #1A202C;
+
+  --color-muted: #A0AEC0; /* Light Gray */
+  --color-muted-foreground: #718096; /* Medium Gray */
+
+  --color-accent: #E2E8F0; /* Light Purple */
+  --color-accent-foreground: #1A202C;
+
+  --color-destructive: #E53E3E; /* Red Accent */
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #E2E8F0; /* Light Purple */
+  --color-input: #E2E8F0; /* Light Purple */
+  --color-ring: #4F7EFF; /* Primary Blue */
+
+  --color-chart-1: #F5A623; /* Orange Accent */
+  --color-chart-2: #38A169; /* Green Accent */
+  --color-chart-3: #4F7EFF; /* Primary Blue */
+  --color-chart-4: #E53E3E; /* Red Accent */
+  --color-chart-5: #718096; /* Medium Gray */
+
+  --color-sidebar: #f7f7f7;
+  --color-sidebar-foreground: #404040;
+  --color-sidebar-primary: #1a1a1a;
+  --color-sidebar-primary-foreground: #fafafa;
+  --color-sidebar-accent: #f0f0f0;
+  --color-sidebar-accent-foreground: #1a1a1a;
+  --color-sidebar-border: #d4d4d8;
+  --color-sidebar-ring: #3b82f6;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Additional Design System Colors */
+  --color-text-dark: #1A202C;
+  --color-text-medium-gray: #718096;
+  --color-text-light-gray: #A0AEC0;
+  --color-gradient-start: #F7F9FC;
+  --color-gradient-end: #E6EFFF;
+
+  /* Font Families */
+  --font-primary: "Inter", sans-serif;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: var(--radius-lg);
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-text-dark);
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-dark);
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text-dark);
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-medium-gray);
+  }
+
+  .text-lg {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .text-sm {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .btn-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn-shadow {
+    box-shadow: 0 2px 4px rgba(79, 126, 255, 0.2);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(to bottom, var(--color-gradient-start), var(--color-gradient-end));
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
