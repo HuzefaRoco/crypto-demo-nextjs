@@ -22,6 +22,21 @@ const pageSubItems = [
 const HeaderNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +46,23 @@ const HeaderNavigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 z-50 flex w-full items-center transition-colors duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled ? "bg-white dark:bg-gray-900 shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container max-w-[1430px]">
@@ -57,12 +85,12 @@ const HeaderNavigation = () => {
                 className="ring-primary absolute top-1/2 right-4 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 xl:hidden"
                 aria-label="navbarOpen"
               >
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
+                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black dark:bg-white"></span>
               </button>
               <nav
-                className={`absolute top-full right-4 w-full max-w-[250px] rounded-lg bg-white px-6 py-4 shadow-sm xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:py-0 xl:shadow-none ${
+                className={`absolute top-full right-4 w-full max-w-[250px] rounded-lg bg-white dark:bg-gray-900 px-6 py-4 shadow-sm xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:py-0 xl:shadow-none ${
                     isMenuOpen ? "block" : "hidden"
                 }`}
               >
@@ -87,12 +115,12 @@ const HeaderNavigation = () => {
                         <ChevronDown className="fill-current h-4 w-4" />
                       </span>
                     </a>
-                    <ul className="submenu invisible absolute top-[115%] left-0 rounded-lg bg-white p-4 opacity-0 shadow-lg transition-[top] duration-300 group-hover:visible group-hover:top-full group-hover:opacity-100 lg:block lg:w-[250px]">
+                    <ul className="submenu invisible absolute top-[115%] left-0 rounded-lg bg-white dark:bg-gray-900 p-4 opacity-0 shadow-lg transition-[top] duration-300 group-hover:visible group-hover:top-full group-hover:opacity-100 lg:block lg:w-[250px]">
                       {pageSubItems.map((item) => (
                         <li key={item.label}>
                           <Link
                             href={item.href}
-                            className="block rounded-sm py-[10px] text-sm text-black hover:text-primary lg:px-4"
+                            className="block rounded-sm py-[10px] text-sm text-black dark:text-white hover:text-primary lg:px-4"
                           >
                             {item.label}
                           </Link>
@@ -112,18 +140,26 @@ const HeaderNavigation = () => {
               </nav>
             </div>
             <div className="flex items-center justify-end pr-16 xl:pr-0 xl:pl-12 2xl:pl-20">
-              <button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black shadow-sm sm:flex">
+              <button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white dark:bg-gray-800 text-black dark:text-white shadow-sm sm:flex">
                 <Search className="h-5 w-5" />
               </button>
               <div className="mr-4">
-                <label className="flex h-11 w-20 cursor-pointer items-center justify-center rounded-full bg-secondary">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
+                <button
+                  onClick={toggleTheme}
+                  className="flex h-11 w-20 cursor-pointer items-center justify-center rounded-full bg-secondary dark:bg-gray-700 transition-colors duration-300"
+                  aria-label="Toggle theme"
+                >
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
+                    !isDarkMode ? "bg-primary text-white" : "bg-transparent text-muted-foreground"
+                  }`}>
                     <Sun className="h-4 w-4 fill-current" />
                   </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-muted-foreground">
+                  <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
+                    isDarkMode ? "bg-primary text-white" : "bg-transparent text-muted-foreground"
+                  }`}>
                     <Moon className="h-4 w-4 fill-current" />
                   </span>
-                </label>
+                </button>
               </div>
               <div className="hidden sm:flex">
                 <Link

@@ -6,9 +6,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Shadcn/UI Colors */
+  /* Light Mode Colors */
   --color-background: #ffffff;
-  --color-foreground: #1A202C; /* Dark Text */
+  --color-foreground: #1A202C;
 
   --color-card: #ffffff;
   --color-card-foreground: #1A202C;
@@ -16,30 +16,30 @@
   --color-popover: #ffffff;
   --color-popover-foreground: #1A202C;
 
-  --color-primary: #4F7EFF; /* Primary Blue */
+  --color-primary: #4F7EFF;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #E2E8F0; /* Light Purple */
+  --color-secondary: #E2E8F0;
   --color-secondary-foreground: #1A202C;
 
-  --color-muted: #A0AEC0; /* Light Gray */
-  --color-muted-foreground: #718096; /* Medium Gray */
+  --color-muted: #A0AEC0;
+  --color-muted-foreground: #718096;
 
-  --color-accent: #E2E8F0; /* Light Purple */
+  --color-accent: #E2E8F0;
   --color-accent-foreground: #1A202C;
 
-  --color-destructive: #E53E3E; /* Red Accent */
+  --color-destructive: #E53E3E;
   --color-destructive-foreground: #ffffff;
 
-  --color-border: #E2E8F0; /* Light Purple */
-  --color-input: #E2E8F0; /* Light Purple */
-  --color-ring: #4F7EFF; /* Primary Blue */
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #4F7EFF;
 
-  --color-chart-1: #F5A623; /* Orange Accent */
-  --color-chart-2: #38A169; /* Green Accent */
-  --color-chart-3: #4F7EFF; /* Primary Blue */
-  --color-chart-4: #E53E3E; /* Red Accent */
-  --color-chart-5: #718096; /* Medium Gray */
+  --color-chart-1: #F5A623;
+  --color-chart-2: #38A169;
+  --color-chart-3: #4F7EFF;
+  --color-chart-4: #E53E3E;
+  --color-chart-5: #718096;
 
   --color-sidebar: #f7f7f7;
   --color-sidebar-foreground: #404040;
@@ -49,6 +49,43 @@
   --color-sidebar-accent-foreground: #1a1a1a;
   --color-sidebar-border: #d4d4d8;
   --color-sidebar-ring: #3b82f6;
+
+  /* Dark Mode Colors */
+  --color-background-dark: #0F1419;
+  --color-foreground-dark: #E2E8F0;
+
+  --color-card-dark: #1A202C;
+  --color-card-foreground-dark: #E2E8F0;
+
+  --color-popover-dark: #1A202C;
+  --color-popover-foreground-dark: #E2E8F0;
+
+  --color-secondary-dark: #2D3748;
+  --color-secondary-foreground-dark: #E2E8F0;
+
+  --color-muted-dark: #4A5568;
+  --color-muted-foreground-dark: #A0AEC0;
+
+  --color-accent-dark: #2D3748;
+  --color-accent-foreground-dark: #E2E8F0;
+
+  --color-border-dark: #2D3748;
+  --color-input-dark: #2D3748;
+
+  --color-sidebar-dark: #1a1a1a;
+  --color-sidebar-foreground-dark: #fafafa;
+  --color-sidebar-accent-dark: #2a2a2a;
+  --color-sidebar-accent-foreground-dark: #fafafa;
+  --color-sidebar-border-dark: #3a3a3a;
+
+  /* Additional Design System Colors */
+  --color-text-dark: #1A202C;
+  --color-text-medium-gray: #718096;
+  --color-text-light-gray: #A0AEC0;
+  --color-gradient-start: #F7F9FC;
+  --color-gradient-end: #E6EFFF;
+  --color-gradient-start-dark: #1A202C;
+  --color-gradient-end-dark: #2D3748;
 
   --radius-lg: 0.5rem;
   --radius-md: calc(0.5rem - 2px);
@@ -74,25 +111,9 @@
     }
   }
 
-  /* Additional Design System Colors */
-  --color-text-dark: #1A202C;
-  --color-text-medium-gray: #718096;
-  --color-text-light-gray: #A0AEC0;
-  --color-gradient-start: #F7F9FC;
-  --color-gradient-end: #E6EFFF;
-
-  /* Font Families */
   --font-primary: "Inter", sans-serif;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -138,6 +159,30 @@
     --sidebar-ring: var(--color-sidebar-ring);
   }
 
+  .dark {
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
+    --card: var(--color-card-dark);
+    --card-foreground: var(--color-card-foreground-dark);
+    --popover: var(--color-popover-dark);
+    --popover-foreground: var(--color-popover-foreground-dark);
+    --secondary: var(--color-secondary-dark);
+    --secondary-foreground: var(--color-secondary-foreground-dark);
+    --muted: var(--color-muted-dark);
+    --muted-foreground: var(--color-muted-foreground-dark);
+    --accent: var(--color-accent-dark);
+    --accent-foreground: var(--color-accent-foreground-dark);
+    --border: var(--color-border-dark);
+    --input: var(--color-input-dark);
+    --sidebar-background: var(--color-sidebar-dark);
+    --sidebar-foreground: var(--color-sidebar-foreground-dark);
+    --sidebar-accent: var(--color-sidebar-accent-dark);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground-dark);
+    --sidebar-border: var(--color-sidebar-border-dark);
+    --color-gradient-start: var(--color-gradient-start-dark);
+    --color-gradient-end: var(--color-gradient-end-dark);
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -147,41 +192,42 @@
     background-color: var(--background);
     color: var(--foreground);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1 {
     font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--color-text-dark);
+    color: var(--foreground);
   }
 
   h2 {
     font-size: 36px;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--color-text-dark);
+    color: var(--foreground);
   }
 
   h3 {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.4;
-    color: var(--color-text-dark);
+    color: var(--foreground);
   }
 
   h4 {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
-    color: var(--color-text-dark);
+    color: var(--foreground);
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--color-text-medium-gray);
+    color: var(--muted-foreground);
   }
 
   .text-lg {
