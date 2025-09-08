@@ -18,8 +18,8 @@ import FooterSection from "@/components/sections/footer-section";
 export default function Home() {
   return (
     // Tailwind + CSS variable support for dark mode
-    <div className="min-h-screen bg-[var(--background)] dark:bg-[var(--background-dark)] text-[var(--foreground)] dark:text-[var(--foreground-dark)]">
-      <HeaderNavigation />
+      <div className="min-h-screen bg-[var(--background)] dark:bg-[var(--background-dark)] text-[var(--foreground)] dark:text-[var(--foreground-dark)]">
+        <HeaderNavigation />
 
       <main>
         <HeroSection />
@@ -56,6 +56,7 @@ export default function Home() {
       </main>
 
       <FooterSection />
+
     </div>
   );
 }
