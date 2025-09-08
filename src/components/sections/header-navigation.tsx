@@ -23,9 +23,26 @@ const pageSubItems = [
 const HeaderNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { resolvedTheme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  // Handle theme safely with error boundary
+  let resolvedTheme = 'light';
+  let toggleTheme = () => {};
+  
+  try {
+    const themeContext = useTheme();
+    resolvedTheme = themeContext.resolvedTheme;
+    toggleTheme = themeContext.toggleTheme;
+  } catch (error) {
+    // Fallback if theme context is not available
+    console.warn('Theme context not available, using light theme as fallback');
+  }
 
   const isDarkMode = resolvedTheme === 'dark';
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +51,40 @@ const HeaderNavigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent hydration mismatch by not rendering theme-dependent content until mounted
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 z-50 flex w-full items-center bg-transparent">
+        <div className="container max-w-[1430px]">
+          <div className="relative -mx-4 flex items-center justify-between">
+            <div className="w-60 max-w-full px-4">
+              <Link href="/" className="block w-full py-6 lg:py-5">
+                <Image
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/logo-1.svg?"
+                  alt="Logo"
+                  width={176}
+                  height={46}
+                  className="w-full"
+                />
+              </Link>
+            </div>
+            <div className="flex w-full items-center justify-end px-4">
+              {/* Simplified navigation without theme toggle during loading */}
+              <div className="hidden sm:flex">
+                <Link
+                  href="/auth/signin"
+                  className="flex items-center justify-center rounded-full border border-border px-8 py-[9px] text-base font-semibold text-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                >
+                  Sign In
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
