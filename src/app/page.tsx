@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderNavigation from "@/components/sections/header-navigation";
 import HeroSection from "@/components/sections/hero-section";
 import BrandsSection from "@/components/sections/brands-section";
@@ -15,43 +17,44 @@ import FooterSection from "@/components/sections/footer-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    // Tailwind + CSS variable support for dark mode
+    <div className="min-h-screen bg-[var(--background)] dark:bg-[var(--background-dark)] text-[var(--foreground)] dark:text-[var(--foreground-dark)]">
       <HeaderNavigation />
-      
+
       <main>
         <HeroSection />
-        
-        <div className="py-20">
+
+        <div>
           <BrandsSection />
         </div>
-        
+
         <FeaturesSection />
-        
-        <div className="py-20">
+
+        <div>
           <TokenSaleSection />
         </div>
-        
+
         <RoadmapSection />
-        
+
         <TeamSection />
-        
-        <div className="py-20">
+
+        <div>
           <TestimonialsSection />
         </div>
-        
+
         <AppDownloadSection />
-        
+
         <FaqSection />
-        
-        <div className="py-20">
+
+        <div>
           <BlogSection />
         </div>
-        
+
         <ContactSection />
-        
+
         <NewsletterSection />
       </main>
-      
+
       <FooterSection />
     </div>
   );

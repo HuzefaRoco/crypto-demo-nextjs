@@ -3,14 +3,9 @@
 import Image from "next/image";
 import React from "react";
 
+// Icons
 const BitcoinIcon = () => (
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 21 21"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="22" height="22" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M12.9231 6.84615C13.5359 7.41026 13.5359 9.17949 13.5359 9.17949C13.5359 9.17949 14.5256 8.76923 15.0641 9.38462C15.6026 10 14.3333 10.5128 14.3333 10.5128C14.3333 10.5128 15.6026 11.0256 15.0641 11.6923C14.5256 12.359 13.5359 12.0513 13.5359 12.0513C13.5359 12.0513 13.5359 13.7179 12.9231 14.2821C12.2821 14.8205 10.5641 14.2821 10.5641 14.2821L10.5128 15.6923H9.4359L9.48718 14.2821C9.48718 14.2821 7.76923 14.8205 7.12821 14.2821C6.48718 13.7179 6.48718 12.0513 6.48718 12.0513C6.48718 12.0513 5.30769 12.4103 4.82051 11.7436C4.33333 11.0769 5.60256 10.5641 5.60256 10.5641C5.60256 10.5641 4.33333 10.0513 4.87179 9.38462C5.41026 8.71795 6.48718 9.17949 6.48718 9.17949C6.48718 9.17949 6.53846 7.41026 7.12821 6.84615C7.71795 6.28205 9.4359 6.84615 9.4359 6.84615L9.48718 5.38462H10.5641L10.5128 6.84615C10.5128 6.84615 12.2821 6.28205 12.9231 6.84615Z"
       fill="#F7931A"
@@ -67,122 +62,118 @@ const PolygonIcon = () => (
   </svg>
 );
 
+// (EthereumIcon, ChainlinkIcon, PolygonIcon remain the same)
+
 const timelineData = [
   {
     date: "Feb 25, 2025",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel",
-    badge: {
-      name: "Bitcoin",
-      percentage: "4.5%",
-      Icon: BitcoinIcon,
-      bgColor: "bg-[#F4F1D7]",
-    },
+    badge: { name: "Bitcoin", percentage: "4.5%", Icon: BitcoinIcon, bgColor: "#F4F1D7" },
   },
   {
     date: "Jan 14, 2026",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel",
-    badge: {
-      name: "Ethereum",
-      percentage: "2.5%",
-      Icon: EthereumIcon,
-      bgColor: "bg-[#EBE9FE]",
-    },
+    badge: { name: "Ethereum", percentage: "2.5%", Icon: EthereumIcon, bgColor: "#EBE9FE" },
   },
   {
     date: "Mar 30, 2028",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel",
-    badge: {
-      name: "Chainlink",
-      percentage: "4.5%",
-      Icon: ChainlinkIcon,
-      bgColor: "bg-[#E7F0FF]",
-    },
+    badge: { name: "Chainlink", percentage: "4.5%", Icon: ChainlinkIcon, bgColor: "#E7F0FF" },
   },
   {
     date: "Dec 19, 2028",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel",
-    badge: {
-      name: "Polygon",
-      percentage: "2.5%",
-      Icon: PolygonIcon,
-      bgColor: "bg-[#F1E9FE]",
-    },
+    badge: { name: "Polygon", percentage: "2.5%", Icon: PolygonIcon, bgColor: "#F1E9FE" },
   },
 ];
 
 type TimelineItem = (typeof timelineData)[0];
 
 const TimelineCard = ({ date, description, badge }: TimelineItem) => (
-  <div className="relative z-10 mx-auto inline-block max-w-[480px] rounded-xl border border-gray-200 bg-white px-7 py-8 shadow-md sm:px-9">
-    <h3 className="mb-4 text-2xl font-bold text-black">{date}</h3>
-    <p className="mb-8 text-base font-medium leading-relaxed text-gray-500">
-      {description}
-    </p>
+  <div
+    className="relative z-10 max-w-[480px] rounded-xl border px-7 py-8 shadow-md sm:px-9"
+    style={{
+      backgroundColor: "var(--card)",
+      borderColor: "var(--border)",
+      color: "var(--card-foreground)",
+    }}
+  >
+    <h3 className="mb-4 text-2xl font-bold">{date}</h3>
+    <p className="mb-8 text-base font-medium leading-relaxed text-[var(--muted-foreground)]">{description}</p>
     <a
       href="#"
-      className={`${badge.bgColor} inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-base font-medium text-black`}
+      className="inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-base font-medium"
+      style={{
+        backgroundColor: badge.bgColor,
+        color: "var(--card-foreground)",
+      }}
     >
       <badge.Icon />
       {badge.name}
-      <span className="ml-1 text-primary">{badge.percentage}</span>
+      <span className="ml-1 text-[var(--primary)]">{badge.percentage}</span>
+      <span
+        className="ml-2 inline-block w-2 h-2 transform rotate-45 border-r-2 border-b-2"
+        style={{ borderColor: "var(--card-foreground)" }}
+      ></span>
     </a>
   </div>
 );
 
 const RoadmapSection = () => {
   return (
-    <section id="roadmap" className="relative z-10 py-20 lg:py-[120px]">
+    <section
+      id="roadmap"
+      className="relative z-10 py-[120px] bg-[var(--background)] text-[var(--foreground)]"
+    >
       <div className="container">
+        {/* Heading */}
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
-          <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
+          <span className="mb-3 block text-lg font-bold uppercase text-[var(--primary)] sm:text-xl">
             ROADMAP
           </span>
-          <h2 className="mb-3 text-3xl font-bold leading-tight text-black md:text-[45px]">
+          <h2 className="mb-3 text-3xl font-bold leading-tight text-[var(--foreground)] md:text-[45px]">
             The Timeline
           </h2>
-          <p className="text-lg font-medium text-gray-500">
+          <p className="text-lg font-medium text-[var(--muted-foreground)]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed congue arcu, In et dignissim quam condimentum vel.
           </p>
         </div>
-      </div>
 
-      <div className="container relative">
-        <div className="absolute bottom-0 left-1/2 -z-10 hidden -translate-x-1/2 lg:block">
-          <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/timeline-16.svg?"
-            alt="shape"
-            width={318}
-            height={1455}
-            className="h-auto w-full"
-          />
-        </div>
+        {/* Timeline */}
+        <div className="relative">
+          <span
+            className="absolute left-1/2 top-0 hidden w-[2px] md:block h-full"
+            style={{ backgroundColor: "var(--border)" }}
+          ></span>
 
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="mb-14 text-center lg:mb-[100px] lg:text-right">
-              <div className="lg:mr-0">
-                <TimelineCard {...timelineData[0]} />
-              </div>
-            </div>
-            <div className="mb-14 text-center lg:mb-[100px] lg:text-right">
-              <div className="lg:mr-0">
-                <TimelineCard {...timelineData[2]} />
-              </div>
-            </div>
-          </div>
+          {timelineData.map((item, idx) => (
+            <div key={idx} className="mb-10 flex w-full justify-between items-start relative">
+              <div className={`w-full md:w-1/2 ${idx % 2 !== 0 ? "hidden md:block" : ""}`}></div>
 
-          <div className="w-full px-4 lg:w-1/2">
-            <div className="h-0 lg:h-40 xl:h-[220px]"></div>
-            <div className="mb-14 text-center lg:mb-[100px] lg:text-left">
-              <div className="lg:ml-0">
-                <TimelineCard {...timelineData[1]} />
+              <div
+                className={`w-full md:w-1/2 relative ${idx % 2 === 0 ? "md:pr-6 md:text-right" : "md:pl-6 md:text-left"}`}
+              >
+                <span
+                  className="absolute top-8 left-1/2 h-4 w-4 rounded-full md:block hidden"
+                  style={{ backgroundColor: "var(--primary)", transform: "translateX(-50%)" }}
+                ></span>
+
+                <TimelineCard {...item} />
               </div>
+
+              <div className={`w-full md:w-1/2 ${idx % 2 === 0 ? "hidden md:block" : ""}`}></div>
             </div>
-            <div className="mb-14 text-center lg:mb-[100px] lg:text-left">
-              <div className="lg:ml-0">
-                <TimelineCard {...timelineData[3]} />
-              </div>
-            </div>
+          ))}
+
+          {/* Background SVG */}
+          <div className="absolute bottom-0 left-1/2 -z-10 hidden -translate-x-1/2 lg:block">
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/timeline-16.svg"
+              alt="shape"
+              width={318}
+              height={1455}
+              className="h-auto w-full"
+            />
           </div>
         </div>
       </div>

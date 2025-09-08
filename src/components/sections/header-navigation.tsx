@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Sun, Moon, ChevronDown } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
+import ToggleTheme from "./theme-toggle";
 
 const navItems = [
   { label: "Home", href: "/#home" },
@@ -24,23 +25,23 @@ const HeaderNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 z-50 flex w-full items-center transition-colors duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container max-w-[1430px]">
-        <div className="relative -mx-4 flex items-center justify-between">
-          <div className="w-60 max-w-full px-4">
-            <Link href="/" className="block w-full py-6 lg:py-5">
+      <div className="container mx-auto max-w-[1430px] px-4">
+        <div className="relative flex items-center justify-between">
+
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="block py-6 lg:py-5">
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/logo-1.svg?"
                 alt="Logo"
@@ -50,90 +51,92 @@ const HeaderNavigation = () => {
               />
             </Link>
           </div>
-          <div className="flex w-full items-center justify-end px-4">
-            <div>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="ring-primary absolute top-1/2 right-4 block -translate-y-1/2 rounded-lg px-3 py-[6px] focus:ring-2 xl:hidden"
-                aria-label="navbarOpen"
-              >
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
-                <span className="relative my-[6px] block h-[2px] w-[30px] bg-black"></span>
-              </button>
-              <nav
-                className={`absolute top-full right-4 w-full max-w-[250px] rounded-lg bg-white px-6 py-4 shadow-sm xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:py-0 xl:shadow-none ${
-                    isMenuOpen ? "block" : "hidden"
-                }`}
-              >
-                <ul className="block xl:flex">
-                  {navItems.map((item) => (
-                    <li key={item.label} className="menu-item">
+
+          {/* Centered Navigation */}
+          <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 xl:flex">
+            <ul className="flex items-center space-x-10">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+
+              {/* Pages Dropdown */}
+              <li className="relative group">
+                <a
+                  href="#"
+                  className="flex items-center text-lg font-semibold text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Pages
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </a>
+                <ul className="absolute left-1/2 top-full mt-2 w-56 -translate-x-1/2 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all">
+                  {pageSubItems.map((subItem) => (
+                    <li key={subItem.label}>
                       <Link
-                        href={item.href}
-                        className="flex py-2 text-lg font-semibold text-muted-foreground hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
+                        href={subItem.href}
+                        className="block px-4 py-2 text-sm text-black dark:text-white hover:text-primary"
                       >
-                        {item.label}
+                        {subItem.label}
                       </Link>
                     </li>
                   ))}
-                  <li className="submenu-item group relative">
-                    <a
-                      className="relative flex items-center py-2 text-lg font-semibold text-muted-foreground group-hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 lg:pr-4 lg:pl-0 xl:ml-10 2xl:ml-12"
-                      href="#"
-                    >
-                      Pages
-                      <span className="pl-3">
-                        <ChevronDown className="fill-current h-4 w-4" />
-                      </span>
-                    </a>
-                    <ul className="submenu invisible absolute top-[115%] left-0 rounded-lg bg-white p-4 opacity-0 shadow-lg transition-[top] duration-300 group-hover:visible group-hover:top-full group-hover:opacity-100 lg:block lg:w-[250px]">
-                      {pageSubItems.map((item) => (
-                        <li key={item.label}>
-                          <Link
-                            href={item.href}
-                            className="block rounded-sm py-[10px] text-sm text-black hover:text-primary lg:px-4"
-                          >
-                            {item.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                  <li className="menu-item">
-                    <Link
-                      href="/#contact"
-                      className="flex py-2 text-lg font-semibold text-muted-foreground hover:text-primary lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
-                    >
-                      Support
-                    </Link>
-                  </li>
                 </ul>
-              </nav>
-            </div>
-            <div className="flex items-center justify-end pr-16 xl:pr-0 xl:pl-12 2xl:pl-20">
-              <button className="mr-4 hidden h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black shadow-sm sm:flex">
-                <Search className="h-5 w-5" />
-              </button>
-              <div className="mr-4">
-                <label className="flex h-11 w-20 cursor-pointer items-center justify-center rounded-full bg-secondary">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
-                    <Sun className="h-4 w-4 fill-current" />
-                  </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-muted-foreground">
-                    <Moon className="h-4 w-4 fill-current" />
-                  </span>
-                </label>
-              </div>
-              <div className="hidden sm:flex">
+              </li>
+
+              <li>
                 <Link
-                  href="/auth/signin"
-                  className="flex items-center justify-center rounded-full border border-border px-8 py-[9px] text-base font-semibold text-foreground transition-all hover:border-primary hover:bg-primary hover:text-white"
+                  href="/#contact"
+                  className="text-lg font-semibold text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Sign In
+                  Support
                 </Link>
-              </div>
-            </div>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Right Utilities */}
+          <div className="flex items-center space-x-4">
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="relative z-50 xl:hidden focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              <span
+                className={`block h-0.5 w-8 bg-black dark:bg-white transition-transform ${
+                  isMenuOpen ? "rotate-45 translate-y-2" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-8 bg-black dark:bg-white my-1 transition-opacity ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-8 bg-black dark:bg-white transition-transform ${
+                  isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              />
+            </button>
+
+            <button className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-gray-700 text-black dark:text-white shadow-sm transition-colors duration-300">
+              <Search className="h-5 w-5" />
+            </button>
+
+            <ToggleTheme />
+
+            <Link
+              href="/auth/signin"
+              className="hidden sm:flex items-center justify-center rounded-full border border-border px-6 py-2 text-base font-semibold text-foreground transition hover:border-primary hover:bg-primary hover:text-white dark:text-white"
+            >
+              Sign In
+            </Link>
           </div>
         </div>
       </div>
