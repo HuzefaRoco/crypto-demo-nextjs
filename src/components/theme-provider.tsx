@@ -36,12 +36,17 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     return 'light';
   };
 
-  // Apply theme to document
+  // Apply theme to document - only manage 'dark' class
   const applyTheme = (newTheme: 'light' | 'dark') => {
     if (typeof document !== 'undefined') {
       const root = document.documentElement;
-      root.classList.remove('light', 'dark');
-      root.classList.add(newTheme);
+      
+      if (newTheme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      
       setResolvedTheme(newTheme);
     }
   };

@@ -108,8 +108,38 @@ const TooltipIcon = ({
 //
 
 const HeroSection = () => {
+  // Add debugging to check if dark mode is working
+  React.useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      console.log('Dark mode active:', isDark);
+      console.log('HTML classes:', document.documentElement.className);
+    };
+    
+    checkDarkMode();
+    
+    // Listen for class changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative z-10 bg-gradient-to-b from-background to-secondary pb-28 pt-48">
+    <section className="relative z-10 min-h-screen bg-gradient-to-b from-background to-secondary pb-28 pt-48">
+      {/* Add a debug indicator that changes dramatically */}
+      <div className="fixed top-20 right-4 z-50 rounded-lg bg-red-500 px-4 py-2 text-white dark:bg-green-500">
+        <span className="text-sm font-bold">
+          LIGHT MODE
+        </span>
+        <span className="hidden text-sm font-bold dark:inline">
+          DARK MODE
+        </span>
+      </div>
+      
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="mb-4 text-3xl font-bold leading-tight text-foreground md:text-5xl">
@@ -140,7 +170,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Decorative Background Image */}
+      {/* Decorative Background Images */}
       <Image
         src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/hero-shape-1-3.svg?"
         alt="shape"
