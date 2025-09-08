@@ -40,12 +40,12 @@ const brandsData = [
 
 const BrandsSection = () => {
   return (
-    <section className="section-padding bg-[var(--background)] text-[var(--foreground)]">
+    <section className="section-padding bg-background">
       <div className="container">
-        <div className="border-y border-[var(--border)] py-12 sm:py-16">
+        <div className="border-y border-border py-12 sm:py-16">
           {/* Section Heading */}
-          <h2 className="mb-12 text-center text-xl font-semibold text-[var(--color-text-dark)] dark:text-[var(--foreground)] sm:text-2xl lg:text-3xl">
-            Trusted by <span className="text-[var(--primary)]">20,000+</span>{" "}
+          <h2 className="mb-12 text-center text-xl font-semibold text-foreground sm:text-2xl lg:text-3xl">
+            Trusted by <span className="text-primary">20,000+</span>{" "}
             companies
           </h2>
 
