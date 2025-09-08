@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 
-const PASSWORD = "mypassword";
+const PASSWORD = process.env.ACCESS_PASSWORD as string;
+
+if (!PASSWORD) {
+  throw new Error('ACCESS_PASSWORD environment variable is not set');
+}
 
 export async function POST(req: Request) {
   const { password } = await req.json();
