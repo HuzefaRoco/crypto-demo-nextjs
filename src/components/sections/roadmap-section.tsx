@@ -75,7 +75,7 @@ const timelineData = [
       name: "Bitcoin",
       percentage: "4.5%",
       Icon: BitcoinIcon,
-      bgColor: "bg-[#F4F1D7]",
+      bgColor: "bg-secondary",
     },
   },
   {
@@ -85,7 +85,7 @@ const timelineData = [
       name: "Ethereum",
       percentage: "2.5%",
       Icon: EthereumIcon,
-      bgColor: "bg-[#EBE9FE]",
+      bgColor: "bg-secondary",
     },
   },
   {
@@ -95,7 +95,7 @@ const timelineData = [
       name: "Chainlink",
       percentage: "4.5%",
       Icon: ChainlinkIcon,
-      bgColor: "bg-[#E7F0FF]",
+      bgColor: "bg-secondary",
     },
   },
   {
@@ -105,7 +105,7 @@ const timelineData = [
       name: "Polygon",
       percentage: "2.5%",
       Icon: PolygonIcon,
-      bgColor: "bg-[#F1E9FE]",
+      bgColor: "bg-secondary",
     },
   },
 ];

@@ -52,7 +52,7 @@ const blogPosts: BlogPost[] = [
 
 const BlogSection = () => {
   return (
-    <section id="blog" className="section-padding">
+    <section id="blog" className="section-padding bg-background">
       <div className="container">
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
           <span className="mb-3 block text-lg font-bold uppercase text-primary sm:text-xl">
@@ -69,7 +69,7 @@ const BlogSection = () => {
         <div className="-mx-4 flex flex-wrap justify-center">
           {blogPosts.map((post, index) => (
             <div key={index} className="w-full px-4 md:w-1/2 lg:w-1/3">
-              <div className="mb-10 rounded-lg bg-card p-8 card-shadow sm:p-9 md:p-7 xl:p-9">
+              <div className="mb-10 rounded-lg bg-card border border-border p-8 shadow-sm sm:p-9 md:p-7 xl:p-9">
                 <Link
                   href={post.postUrl}
                   className="mb-7 block w-full overflow-hidden rounded-lg"
@@ -79,7 +79,7 @@ const BlogSection = () => {
                     alt="blog"
                     width={post.imageWidth}
                     height={post.imageHeight}
-                    className="w-full"
+                    className="w-full transition-transform duration-300 hover:scale-105"
                   />
                 </Link>
                 <div className="mb-4 flex items-center">
@@ -99,7 +99,7 @@ const BlogSection = () => {
                 <h3>
                   <Link
                     href={post.postUrl}
-                    className="mb-3 block text-xl font-bold text-foreground hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl"
+                    className="mb-3 block text-xl font-bold text-foreground hover:text-primary transition-colors sm:text-2xl lg:text-xl xl:text-2xl"
                   >
                     {post.title}
                   </Link>
@@ -109,7 +109,7 @@ const BlogSection = () => {
                 </p>
                 <Link
                   href={post.postUrl}
-                  className="inline-block rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 btn-shadow"
+                  className="inline-block rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors btn-shadow"
                 >
                   Read More
                 </Link>

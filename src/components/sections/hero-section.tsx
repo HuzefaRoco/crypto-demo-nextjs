@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const IconBitcoin = () => (
-  <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14 28.5C21.732 28.5 28 22.232 28 14.5C28 6.76801 21.732 0.5 14 0.5C6.26801 0.5 0 6.76801 0 14.5C0 22.232 6.26801 28.5 14 28.5Z" fill="#F7931A"/>
     <path d="M17.8166 12.3999C18.2706 11.9579 18.5246 11.3919 18.5006 10.7999C18.4406 9.63588 17.5166 8.74788 16.3346 8.74788H13.1186V6.49188H15.6506V4.99188H13.1186V3.49188H11.6186V4.99188H9.08658V6.49188H11.6186V8.74788H10.1546C9.15258 8.74788 8.33058 9.56988 8.33058 10.5719V11.2319C8.33058 11.4599 8.51058 11.6399 8.73858 11.6399H9.08658V17.8559H8.73858C8.51058 17.8559 8.33058 18.0359 8.33058 18.2639V18.9239C8.33058 19.1519 8.51058 19.3319 8.73858 19.3319H9.08658V21.8459H11.6186V23.3459H9.08658V24.8459H11.6186V25.8459H13.1186V24.8459H15.6506V23.3459H13.1186V21.8459H16.8926C17.9126 21.8459 18.7346 21.0359 18.7346 20.0159V19.3559C18.7346 18.7559 18.4826 18.1859 18.0386 17.7359C18.4826 17.2859 18.7346 16.7159 18.7346 16.1159C18.7346 15.1139 17.9126 14.2919 16.8926 14.2919H13.1186V12.3999H17.8166ZM16.3346 16.1159C16.3346 16.8659 15.7226 17.4779 14.9726 17.4779H13.1186V14.7539H14.9726C15.7226 14.7539 16.3346 15.3659 16.3346 16.1159ZM16.2746 19.9859C16.2746 20.6939 15.6866 21.2819 14.9786 21.2819H13.1186V18.6899H14.9786C15.6866 18.6899 16.2746 19.2779 16.2746 19.9859Z" fill="white"/>
   </svg>
@@ -96,11 +96,11 @@ const cryptoIcons = [
 
 const TooltipIcon = ({ icon, tooltipText }: { icon: React.ReactNode; tooltipText: string }) => (
   <div className="group relative mt-4 px-1 sm:px-2">
-    <span className="mt-2 flex h-10 w-10 items-center justify-center rounded-full bg-white">
+    <span className="mt-2 flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-sm">
       {icon}
     </span>
-    <div className="absolute -top-full left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#2D2C4A] px-5 py-2 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-      <span className="absolute -bottom-1 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-[#2D2C4A]"></span>
+    <div className="absolute -top-full left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full bg-foreground px-5 py-2 text-background opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <span className="absolute -bottom-1 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-foreground"></span>
       {tooltipText}
     </div>
   </div>

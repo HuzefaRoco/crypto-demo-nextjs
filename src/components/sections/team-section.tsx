@@ -32,7 +32,7 @@ interface TeamCardProps {
 }
 
 const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a href={href} className="text-muted-foreground hover:text-primary">
+  <a href={href} className="text-muted-foreground hover:text-primary transition-colors">
     {children}
   </a>
 );
@@ -51,7 +51,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ image, name, title }) => {
             style={{ color: "transparent" }}
           />
         </div>
-        <div className="relative z-10 mx-auto -mt-8 w-[calc(100%-40px)] rounded-lg bg-card px-5 py-6 shadow-md">
+        <div className="relative z-10 mx-auto -mt-8 w-[calc(100%-40px)] rounded-lg bg-card border border-border px-5 py-6 shadow-sm">
           <h3 className="mb-1 text-2xl font-bold text-foreground">{name}</h3>
           <p className="mb-4 text-base font-medium text-muted-foreground">{title}</p>
           <div className="flex items-center justify-center space-x-5">

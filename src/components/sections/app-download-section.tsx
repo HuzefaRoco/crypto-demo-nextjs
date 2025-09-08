@@ -28,7 +28,7 @@ const PlayStoreIcon = () => (
 
 const AppDownloadSection = () => {
   return (
-    <section className="pt-20 pb-[120px]">
+    <section className="bg-background pt-20 pb-[120px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 lg:w-1/2">
@@ -46,7 +46,7 @@ const AppDownloadSection = () => {
                 <div className="w-full px-3 sm:w-1/2">
                   <a
                     href="#"
-                    className="mb-3 flex w-full items-center justify-center rounded-lg bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition duration-300 hover:bg-foreground/90 sm:mb-0"
+                    className="mb-3 flex w-full items-center justify-center rounded-lg bg-primary px-6 py-4 text-center text-base font-semibold text-primary-foreground transition duration-300 hover:bg-primary/90 sm:mb-0"
                   >
                     <span className="mr-3">
                       <AppStoreIcon />
@@ -57,7 +57,7 @@ const AppDownloadSection = () => {
                 <div className="w-full px-3 sm:w-1/2">
                   <a
                     href="#"
-                    className="flex w-full items-center justify-center rounded-lg bg-foreground px-6 py-4 text-center text-base font-semibold text-background transition duration-300 hover:bg-foreground/90"
+                    className="flex w-full items-center justify-center rounded-lg bg-primary px-6 py-4 text-center text-base font-semibold text-primary-foreground transition duration-300 hover:bg-primary/90"
                   >
                     <span className="mr-3">
                       <PlayStoreIcon />
