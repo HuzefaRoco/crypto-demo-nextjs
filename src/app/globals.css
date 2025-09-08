@@ -1,3 +1,6 @@
+/* ==============================
+   Imports
+============================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
@@ -5,8 +8,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ==============================
+   Theme Variables
+============================== */
 @theme {
-  /* Light Mode Colors */
+  /* ---------- LIGHT MODE ---------- */
   --color-background: #ffffff;
   --color-foreground: #1A202C;
 
@@ -50,13 +56,6 @@
   --color-sidebar-border: #d4d4d8;
   --color-sidebar-ring: #3b82f6;
 
-  /* Additional Design System Colors */
-  --color-text-dark: #1A202C;
-  --color-text-medium-gray: #718096;
-  --color-text-light-gray: #A0AEC0;
-  --color-gradient-start: #F7F9FC;
-  --color-gradient-end: #E6EFFF;
-
   --radius-lg: 0.5rem;
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
@@ -65,31 +64,55 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
   @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
   }
+
   @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
   }
+
+  --color-text-dark: #1A202C;
+  --color-text-medium-gray: #718096;
+  --color-text-light-gray: #A0AEC0;
+  --color-gradient-start: #F7F9FC;
+  --color-gradient-end: #E6EFFF;
 
   --font-primary: "Inter", sans-serif;
+
+  /* ---------- DARK MODE ---------- */
+  --color-background-dark: #0D1117;
+  --color-foreground-dark: #F0F6FC;
+
+  --color-card-dark: #161B22;
+  --color-card-foreground-dark: #F0F6FC;
+
+  --color-popover-dark: #161B22;
+  --color-popover-foreground-dark: #F0F6FC;
+
+  --color-primary-dark: #4F7EFF;
+  --color-primary-foreground-dark: #ffffff;
+
+  --color-secondary-dark: #1F2937;
+  --color-secondary-foreground-dark: #E5E7EB;
+
+  --color-muted-dark: #6B7280;
+  --color-muted-foreground-dark: #9CA3AF;
+
+  --color-accent-dark: #1F2937;
+  --color-accent-foreground-dark: #E5E7EB;
+
+  --color-border-dark: #2D3748;
+  --color-input-dark: #374151;
+  --color-ring-dark: #4F7EFF;
 }
 
+/* ==============================
+   Base Styles
+============================== */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
+  * {
     border-color: var(--color-border);
   }
 
@@ -119,6 +142,7 @@
     --chart-4: var(--color-chart-4);
     --chart-5: var(--color-chart-5);
     --radius: var(--radius-lg);
+
     --sidebar-background: var(--color-sidebar);
     --sidebar-foreground: var(--color-sidebar-foreground);
     --sidebar-primary: var(--color-sidebar-primary);
@@ -127,32 +151,27 @@
     --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
     --sidebar-border: var(--color-sidebar-border);
     --sidebar-ring: var(--color-sidebar-ring);
-    --color-gradient-start: var(--color-gradient-start);
-    --color-gradient-end: var(--color-gradient-end);
   }
 
+  /* Dark mode overrides */
   .dark {
-    --background: #0F1419;
-    --foreground: #E2E8F0;
-    --card: #1A202C;
-    --card-foreground: #E2E8F0;
-    --popover: #1A202C;
-    --popover-foreground: #E2E8F0;
-    --secondary: #2D3748;
-    --secondary-foreground: #E2E8F0;
-    --muted: #4A5568;
-    --muted-foreground: #A0AEC0;
-    --accent: #2D3748;
-    --accent-foreground: #E2E8F0;
-    --border: #2D3748;
-    --input: #2D3748;
-    --sidebar-background: #1a1a1a;
-    --sidebar-foreground: #fafafa;
-    --sidebar-accent: #2a2a2a;
-    --sidebar-accent-foreground: #fafafa;
-    --sidebar-border: #3a3a3a;
-    --color-gradient-start: #1A202C;
-    --color-gradient-end: #2D3748;
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
+    --card: var(--color-card-dark);
+    --card-foreground: var(--color-card-foreground-dark);
+    --popover: var(--color-popover-dark);
+    --popover-foreground: var(--color-popover-foreground-dark);
+    --primary: var(--color-primary-dark);
+    --primary-foreground: var(--color-primary-foreground-dark);
+    --secondary: var(--color-secondary-dark);
+    --secondary-foreground: var(--color-secondary-foreground-dark);
+    --muted: var(--color-muted-dark);
+    --muted-foreground: var(--color-muted-foreground-dark);
+    --accent: var(--color-accent-dark);
+    --accent-foreground: var(--color-accent-foreground-dark);
+    --border: var(--color-border-dark);
+    --input: var(--color-input-dark);
+    --ring: var(--color-ring-dark);
   }
 
   html {
@@ -164,55 +183,45 @@
     background-color: var(--background);
     color: var(--foreground);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1 {
     font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--foreground);
+    color: var(--color-text-dark);
   }
 
   h2 {
     font-size: 36px;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--foreground);
+    color: var(--color-text-dark);
   }
 
   h3 {
     font-size: 24px;
     font-weight: 600;
     line-height: 1.4;
-    color: var(--foreground);
+    color: var(--color-text-dark);
   }
 
   h4 {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
-    color: var(--foreground);
+    color: var(--color-text-dark);
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--muted-foreground);
+    color: var(--color-text-medium-gray);
   }
 
-  .text-lg {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-
-  .text-sm {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-  }
+  .text-lg { font-size: 18px; }
+  .text-sm { font-size: 14px; }
 
   .btn-text {
     font-size: 16px;
@@ -229,6 +238,9 @@
   }
 }
 
+/* ==============================
+   Utilities
+============================== */
 @layer utilities {
   .section-padding {
     padding-top: 80px;
@@ -244,11 +256,17 @@
   }
 
   .bg-gradient-hero {
-    background: linear-gradient(to bottom, var(--color-gradient-start), var(--color-gradient-end));
+    background: linear-gradient(
+      to bottom,
+      var(--color-gradient-start),
+      var(--color-gradient-end)
+    );
   }
 }
 
-/* Hide Next.js error overlay portal */
+/* ==============================
+   Next.js Overlay Fix
+============================== */
 nextjs-portal {
   display: none !important;
 }
