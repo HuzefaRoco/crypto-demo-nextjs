@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  Shield,
-  Award,
-  Globe,
+  Search,
+  Pen,
+  Settings,
   Lock,
   DollarSign,
   TrendingUp,
@@ -16,26 +16,26 @@ interface Feature {
 
 const featuresData: Feature[] = [
   {
-    icon: Shield,
-    title: "Safe & Secure",
+    icon: Search,
+    title: "Find & understand information",
     description:
       "Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod tempor labore labore labore et dolor .",
   },
   {
-    icon: Award,
-    title: "Early Bonus",
+    icon: Pen,
+    title: "Create & summarize content",
     description:
       "Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod tempor labore labore labore et dolor .",
   },
   {
-    icon: Globe,
-    title: "Universal Access",
+    icon: Settings,
+    title: "Automate your work",
     description:
       "Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod tempor labore labore labore et dolor .",
   },
   {
     icon: Lock,
-    title: "Secure Storage",
+    title: "Security & Privacy",
     description:
       "Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod tempor labore labore labore et dolor .",
   },
@@ -63,10 +63,10 @@ const FeaturesSection: React.FC = () => {
         {/* Section Header */}
         <div className="mx-auto mb-16 max-w-[590px] text-center md:mb-20">
           <span className="mb-3 block text-lg font-bold uppercase text-[var(--primary)] sm:text-xl">
-            CRYPTO FEATURE
+            Rocotal Features
           </span>
           <h2 className="mb-3 text-3xl font-bold leading-tight text-[var(--color-text-dark)] dark:text-[var(--foreground)] md:text-[45px]">
-            Best Features
+            Reimagine your everyday work with AI.
           </h2>
           <p className="text-lg font-medium text-[var(--muted-foreground)]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed

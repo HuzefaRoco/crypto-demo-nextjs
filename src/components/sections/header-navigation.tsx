@@ -41,14 +41,15 @@ const HeaderNavigation = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="block py-6 lg:py-5">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/logo-1.svg?"
+            <Link href="/" className="flex items-center gap-2 py-6 lg:py-5">
+              <img
+                src="/rocotal-logo.png"
                 alt="Logo"
-                width={176}
-                height={46}
-                className="w-full"
+                width={60}
+                height={60}
+                className="h-15 w-15"
               />
+              <span className="text-2xl font-bold text-[#5d6fee]">Rocotal</span>
             </Link>
           </div>
 

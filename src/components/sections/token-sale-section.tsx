@@ -57,10 +57,10 @@ const TokenSaleSection: React.FC = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-9">
                 <span className="mb-3 text-lg font-bold uppercase text-[var(--primary)]">
-                  TOKEN
+                  Rocotal
                 </span>
                 <h2 className="mb-3 text-3xl font-bold leading-tight text-[var(--foreground)] md:text-[45px]">
-                  Token Sale
+                  saves up to 100 hours per user/year
                 </h2>
                 <p className="text-lg font-medium text-[var(--muted)]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
