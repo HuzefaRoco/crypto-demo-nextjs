@@ -22,7 +22,7 @@ const NewsletterSection = () => {
               Subscribe to Our Newsletter
             </h2>
             <p className="text-lg sm:text-xl text-[var(--muted-foreground)]">
-              Stay updated with the latest news, updates, and crypto insights. 
+              Stay updated with the latest news, updates, and insights. 
               Enter your email below and never miss a beat.
             </p>
           </div>

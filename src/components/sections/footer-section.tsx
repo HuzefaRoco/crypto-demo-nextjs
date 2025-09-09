@@ -67,13 +67,15 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Logo & Social */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-6">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/a724e50e-fbb3-4160-a0b9-a80b67c8a067-crypto-demo-nextjstemplates-com/assets/svgs/logo-1.svg?"
-                alt="Crypto"
-                width={110}
-                height={29}
+            <Link href="/" className="flex items-center gap-2 mb-6">
+              <img
+                src="/rocotal-logo.png"
+                alt="Rocotal"
+                width={60}
+                height={60}
+                className="h-15 w-15"
               />
+              <span className="text-2xl font-bold text-[#5d6fee]">Rocotal</span>
             </Link>
             <p className="mb-6 text-[var(--muted-foreground)] font-medium max-w-[300px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae quam nec ante fringilla vel at erat convallis elit.
@@ -129,7 +131,7 @@ const FooterSection = () => {
 
         <div className="mt-16 border-t border-[var(--border)] pt-6">
           <p className="text-center text-[var(--muted-foreground)] text-sm">
-            © Crypto - All Rights Reserved | Crafted by Next.js Templates
+            © Rocotal - All Rights Reserved
           </p>
         </div>
       </div>
